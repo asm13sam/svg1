@@ -24,9 +24,6 @@
             </g>
     </svg>
         <form>
-            <!-- <label for="width">Ширина:<input type="text" value="200" id="width"/></label>
-            <label for="height">Висота:<input type="text" value="100" id="height"/></label> -->
-            <!-- <textarea id="text">Text here</textarea> -->
             <label for="txt1">Назва вулиці:<input type="text" value="Text here" id="txt1"/></label>
             <label for="txt0">Номер будинку:<input type="text" value="Text here" id="txt0"/></label>
             <label for="font_name">Розмір літер вулиця:<input type="range" name="font_name" min="5000" max="10000" step="10" id="font_name"></label>
@@ -67,8 +64,6 @@ vert_name.addEventListener("input", (event) => {
 
 
 function update() {
-    // const width = document.getElementById("width").value;
-    // const height = document.getElementById("height").value;
     const fgColor = document.getElementById("fgcolor").value;
     const bgColor = document.getElementById("bgcolor").value;
     
@@ -76,31 +71,19 @@ function update() {
     const txt0 = document.getElementById("txt0").value;
     const font_house = document.getElementById("font_house").value;
     const font_name = document.getElementById("font_name").value;
-    // const txt = document.getElementById("text").innerHTML
     
     const bg = document.getElementById("bg");
     const fg_house = document.getElementById("fg_house");
     const fg_window = document.getElementById("fg_window");
     const fg_street = document.getElementById("fg_street");
-    // rect.setAttribute("width", width);
-    // rect.setAttribute("height", height);
     bg.setAttribute("fill", bgColor);
     fg_house.setAttribute("fill", fgColor);
     fg_window.setAttribute("fill", fgColor);
     fg_street.setAttribute("fill", fgColor);
-    // const x = (700 - width)/2
-    // const y = (500 - height)/2
-    // rect.setAttribute("x", x);
-    // rect.setAttribute("y", y);
-    // const text_name = document.getElementById("text_name");
     text_name.textContent = txt1;
-    // const text_house = document.getElementById("text_house");
     text_house.textContent = txt0;
     const text_street = document.getElementById("text_street");
     
-    // text.setAttribute("textLength", width - 20)
-    // text.setAttribute("y", y + font/3 + height/2)
-    // text.setAttribute("x", x + width / 2)
     text_house.setAttribute("fill", fgColor)
     text_name.setAttribute("fill", fgColor)
     text_street.setAttribute("fill", fgColor)
@@ -126,15 +109,6 @@ function saveSvg(svgEl, name) {
     document.body.removeChild(downloadLink);
 }
 
-// function createText() {
-
-// var newText = document.createElementNS(svgNS,"text");
-// newText.setAttributeNS(null,"x",20);      
-// newText.setAttributeNS(null,"y",100);   
-// var textNode = document.createTextNode("milind morey");
-// newText.appendChild(textNode);
-// document.getElementById("firstGroup").appendChild(newText);
-// }
 </script>
 </body>
 </html>
