@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Редагувати табличку</h1>
+    <main class="main">
+        <svg id="svg" width="700" height="500" xmlns="http://www.w3.org/2000/svg">
+            <rect id="rect1" width="200" height="100" x="250" y="200" rx="10" ry="10" fill="blue" />
+            <text text-anchor="middle" font-family="Tahoma, Helvetica, sans-serif" id="text1" x="350" y="263" fill="white" font-size="40">Text here</text>
+        </svg>
+        <form>
+            <label for="width">Ширина:<input type="text" value="200" id="width"/></label>
+            <label for="height">Висота:<input type="text" value="100" id="height"/></label>
+            <!-- <textarea id="text">Text here</textarea> -->
+            <label for="text">Текст:<input type="text" value="Text here" id="text"/></label>
+            <label for="font">Розмір літер:<input type="number" value="40" id="font"/></label>
+            <label for="fgcolor">Колір тексту:<input type="color" id="fgcolor" name="fg" value="#ffffff"></label>
+            <label for="bgcolor">Колір фону:<input type="color" id="bgcolor" name="bg" value="#0000ff"></label>
+            <input type="button" value="Оновити" onclick="update()" />
+            <input type="button" value="Зберегти" onclick="saveFile()" />
+        </form>
+    </main>
+
+<script>
+function update() {
+    const width = document.getElementById("width").value;
+    const height = document.getElementById("height").value;
+    const fgColor = document.getElementById("fgcolor").value;
+    const bgColor = document.getElementById("bgcolor").value;
+    
+    const txt = document.getElementById("text").value;
+    const font = document.getElementById("font").value;
+    // const txt = document.getElementById("text").innerHTML
+    const rect = document.getElementById("rect1");
+    rect.setAttribute("width", width);
+    rect.setAttribute("height", height);
+    rect.setAttribute("fill", bgColor);
+    const x = (700 - width)/2
+    const y = (500 - height)/2
+    rect.setAttribute("x", x);
+    rect.setAttribute("y", y);
+    const text = document.getElementById("text1");
+    text.textContent = txt;
+    // text.setAttribute("textLength", width - 20)
+    text.setAttribute("y", y + font/3 + height/2)
+    text.setAttribute("x", x + width / 2)
+    text.setAttribute("fill", fgColor)
+    text.setAttribute("font-size", font)
+}
+
+function saveFile() {
+    var svg = document.getElementById("svg");
+    saveSvg(svg, "test11.svg")
+}
+
+function saveSvg(svgEl, name) {
+    svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    var svgData = svgEl.outerHTML;
+    var preface = '<?xml version="1.0" standalone="no"?>\r\n';
+    var svgBlob = new Blob([preface, svgData], {type:"image/svg+xml;charset=utf-8"});
+    var svgUrl = URL.createObjectURL(svgBlob);
+    var downloadLink = document.createElement("a");
+    downloadLink.href = svgUrl;
+    downloadLink.download = name;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+}
+
+// function createText() {
+
+// var newText = document.createElementNS(svgNS,"text");
+// newText.setAttributeNS(null,"x",20);      
+// newText.setAttributeNS(null,"y",100);   
+// var textNode = document.createTextNode("milind morey");
+// newText.appendChild(textNode);
+// document.getElementById("firstGroup").appendChild(newText);
+// }
+</script>
+</body>
+</html>

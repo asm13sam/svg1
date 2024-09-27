@@ -1,0 +1,53 @@
+body {
+  background-color: rgb(203, 240, 240);
+  font-family: Tahoma, Helvetica, sans-serif;
+}
+
+svg {
+  background-color: beige;
+}
+h1 {
+  text-align: center;
+}
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+form {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+}
+
+label {
+  text-align: end;
+  color: rgb(2, 43, 43);
+  padding: 5px;
+  display: inline-block;
+}
+
+input {
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  margin: 5px;
+}
+
+input[type=color] {
+  padding: 5px;
+  width: 30%;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
