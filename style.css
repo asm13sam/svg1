@@ -17,6 +17,7 @@ main {
 }
 
 form {
+  width: 30%;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -27,7 +28,7 @@ label {
   text-align: end;
   color: rgb(2, 43, 43);
   padding: 5px;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 input {
@@ -50,4 +51,9 @@ input[type=button], input[type=submit], input[type=reset] {
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+#contact_div {
+  display: flex;
+  flex-direction: row;
 }
